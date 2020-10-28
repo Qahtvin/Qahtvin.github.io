@@ -1,42 +1,82 @@
 ---
 layout: default
 ---
+<main>
+  <!-- Article -->
+  <article{% if site.addthisId == "" and site.disqusUsername == "" %} class="noBorder"{% endif %}>
+      <!-- If article has a cover photo -->
+      {% if page.coverPhoto %}
 
-<!-- Article -->
-<article{% if site.addthisId == "" and site.disqusUsername == "" %} class="noBorder"{% endif %}>
+        <!-- Article image with aspect ratio -->
+        <a href="{{ site.baseurl }}{{ post.url }}" class="ar-container">
+          <span class="ar-content" style="background-image: url({{ page.coverPhoto }});"></span>
+        </a><!-- .ar-container -->
 
-  <!-- Article title -->
-  <h1>{{ page.title }}</h1>
+      {% endif %}
+    <!-- Article title -->
+    <h1>{{ page.title }}</h1>
 
-  <!-- Article date -->
-  <span class="article__date">
-    {% if site.lang == "tr" %}
-      {% assign m = page.date | date: "%-m" %}
-      {{ page.date | date: "%-d" }} 
-      {% case m %}
-        {% when "1" %}OCAK 
-        {% when "2" %}ŞUBAT 
-        {% when "3" %}MART 
-        {% when "4" %}NİSAN 
-        {% when "5" %}MAYIS 
-        {% when "6" %}HAZİRAN 
-        {% when "7" %}TEMMUZ 
-        {% when "8" %}AĞUSTOS 
-        {% when "9" %}EYLÜL 
-        {% when "10" %}EKİM 
-        {% when "11" %}KASIM 
-        {% when "12" %}ARALIK 
-      {% endcase %}
-      {{ page.date | date: "%Y" }}
-    {% else %}
-      {{ page.date | date_to_long_string | upcase }}
-    {% endif %}
-  </span>
+    <!-- Article date -->
+    <span class="article__date">
+      {% if site.lang == "tr" %}
+        {% assign m = page.date | date: "%-m" %}
+        {{ page.date | date: "%-d" }}
+        {% case m %}
+          {% when "1" %}OCAK
+          {% when "2" %}ŞUBAT
+          {% when "3" %}MART
+          {% when "4" %}NİSAN
+          {% when "5" %}MAYIS
+          {% when "6" %}HAZİRAN
+          {% when "7" %}TEMMUZ
+          {% when "8" %}AĞUSTOS
+          {% when "9" %}EYLÜL
+          {% when "10" %}EKİM
+          {% when "11" %}KASIM
+          {% when "12" %}ARALIK
+        {% endcase %}
+        {{ page.date | date: "%Y" }}
+      {% else %}
+        {{ page.date | date_to_long_string | upcase }}
+      {% endif %}
+    </span>
 
-  <!-- Article description -->
-  <section>{{ page.content }}</section>
+    <!-- Article pre description -->
+    <section class="max-height">{{ page.content }}</section>
+    <br>
+    <br>
+    <br>
 
+  {% if page.collection %}
+    {% assign collection = site[page.collection] | sort: 'position' %}
+    {% assign prev = collection | last %}
+    {% assign next = collection | first %}
+
+    {% for item in collection %}
+      {% if item.title == page.title %}
+        {% unless forloop.first %}
+          {% assign prev = iterator %}
+        {% endunless %}
+
+        {% unless forloop.last %}
+          {% assign next = collection[forloop.index] %}
+        {% endunless %}
+      {% endif %}
+
+      {% assign iterator = item %}
+    {% endfor %}
+  {% endif %}
+  {% if prev and prev.url != page.url %}
+    <a class="prev" href="{{ prev.url }}">Previous Page</a>
+  {% endif %}
+
+  {% if next and next.url != page.url %}
+    <a class="next" href="{{ next.url }}">Next Page</a>
+  {% endif %}
+  <br>
 </article><!-- article -->
+
+</main>
 
 <!-- If addthisId declared -->
 {% if site.addthisId != "" %}

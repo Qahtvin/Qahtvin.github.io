@@ -827,3 +827,16 @@ footer {
 /* Personal computers */
 @media(min-width:$computer-min) {
 }
+
+
+.next {
+  float: right;
+}
+
+.prev, .next {
+  color: #4a4a4a;
+}
+
+.prev:hover, .next:hover {
+  color: #4a4a4a;
+}
