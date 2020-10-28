@@ -1,6 +1,7 @@
 # Website details
 name: Qahtvin.github.io
-description:
+title: Qahtvin.github.io
+description: "a blog"
 author: Qahtvin
 lang: en
 locale: en_US
@@ -35,3 +36,8 @@ sitemap:
     - "/index.html"
   change_frequency_name: "daily"
   priority_name: "1.00"
+
+collections:
+  pages:
+    directory: pages
+    output: true
