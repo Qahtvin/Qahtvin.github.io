@@ -51,11 +51,11 @@ layout: default
   <!-- Article date & article continue reading button container -->
   <div class="article__bottom">
 {% if post.collection %}
-  {% assign collection = site[post.collection] | sort: 'position' %}
+  {% assign collection = site[post.collection] %}
   {% assign prev = collection | last %}
   {% assign next = collection | first %}
 
-  {% for item in collection %}
+  {% for item in collection sort: "date" reversed %}
     {% if item.title == post.title %}
       {% unless forloop.first %}
         {% assign prev = iterator %}
@@ -70,12 +70,12 @@ layout: default
   {% endfor %}
 {% endif %}
 <br>
-{% if prev and prev.url != post.url %}
-  <a class="prev" href="{{ prev.url }}">Previous Page</a>
+{% if next %}
+  <a class="prev" href="{{ next.url }}">Previous Page</a>
 {% endif %}
 
-{% if next and next.url != post.url %}
-  <a class="next" href="{{ next.url }}">Next Page</a>
+{% if prev %}
+  <a class="next" href="{{ prev.url }}">Next Page</a>
 {% endif %}
 <br>
 

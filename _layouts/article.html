@@ -48,11 +48,11 @@ layout: default
     <br>
 
   {% if page.collection %}
-    {% assign collection = site[page.collection] | sort: 'position' %}
+    {% assign collection = site[page.collection] %}
     {% assign prev = collection | last %}
     {% assign next = collection | first %}
 
-    {% for item in collection %}
+    {% for item in collection sort: "date" reversed %}
       {% if item.title == page.title %}
         {% unless forloop.first %}
           {% assign prev = iterator %}
@@ -66,12 +66,12 @@ layout: default
       {% assign iterator = item %}
     {% endfor %}
   {% endif %}
-  {% if prev and prev.url != page.url %}
-    <a class="prev" href="{{ prev.url }}">Previous Page</a>
+  {% if next %}
+    <a class="prev" href="{{ next.url }}">Previous Page</a>
   {% endif %}
 
-  {% if next and next.url != page.url %}
-    <a class="next" href="{{ next.url }}">Next Page</a>
+  {% if prev %}
+    <a class="next" href="{{ prev.url }}">Next Page</a>
   {% endif %}
   <br>
 </article><!-- article -->
