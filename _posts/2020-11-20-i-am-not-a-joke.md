@@ -2,6 +2,7 @@
 title: I am not a joke
 date: 2020-11-20T17:46:36.727Z
 layout: article
+day: "2"
 coverPhoto: /images/uploads/cat-by-maitri.png
 ---
 *My love, Catherine, 8533 and 61 days have passed.*
