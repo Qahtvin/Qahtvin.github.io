@@ -1,16 +1,16 @@
 ---
-title: Days
+title: Entries
 layout: default
 
 ---
 <br>
-<h2 style="text-align: center;">List of Posts</h2>
+<h2 style="text-align: center;">List of Entries</h2>
 <br>
 <div class="card-container">
   {% for item in site.posts reversed  %}
   <a href="{{item.url}}">
     <div class="card">
-        <p><b>Day {{ item.day }}:</b> {{ item.title }}</p>
+        <p><b>Entry {{ item.entry }}:</b> {{ item.title }}</p>
       </div>
   </a>
   {% endfor %}

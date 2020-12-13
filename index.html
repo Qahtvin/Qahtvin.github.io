@@ -21,7 +21,7 @@ layout: default
     <br>
    <!-- Article date -->
    <span class="article__date">
-    Day {{ post.day }}
+    Entry {{ post.entry }}
   </span>
 
 
@@ -51,11 +51,11 @@ layout: default
 {% endif %}
 <br>
 {% if next %}
-  <a class="prev" href="{{ next.url }}">Previous Day</a>
+  <a class="prev" href="{{ next.url }}">Previous Entry</a>
 {% endif %}
 
 {% if prev %}
-  <a class="next" href="{{ prev.url }}">Next Day</a>
+  <a class="next" href="{{ prev.url }}">Next Entry</a>
 {% endif %}
 <br>
 
