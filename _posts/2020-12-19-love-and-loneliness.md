@@ -3,6 +3,7 @@ title: Love and loneliness
 date: 2020-12-19T04:13:33.971Z
 entry: "3"
 layout: article
+coverPhoto: /images/uploads/cat-by-maitri.png
 ---
 *My love, Catherine, 8533 and 89 days have passed.*
 
