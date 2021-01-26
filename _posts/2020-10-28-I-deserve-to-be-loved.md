@@ -1,9 +1,9 @@
 ---
 title: I deserve to be loved
 date: 2020-10-28T21:01:45.341Z
-layout: article
-coverPhoto: /images/uploads/cat-by-maitri.png
 entry: "1"
+layout: article
+coverPhoto: /images/uploads/cat_commission_jan_2021.png
 ---
 *My love, Catherine, 8533 and 37 days have passed.*
 
