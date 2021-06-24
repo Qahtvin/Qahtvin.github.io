@@ -28,7 +28,7 @@ Welcome to womanhood!
 You wouldn't welcome your cisters into this filth\
 Why do you think I wish to be?\
 Do not welcome me into the worst parts of womanhood\
-As thought I have to now know how it feels\
+As though I have to now know how it feels\
 Like I have to pay for not living this all along
 
 *Their resentment is misplaced, Catherine.*
